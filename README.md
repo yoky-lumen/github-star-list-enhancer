@@ -9,11 +9,11 @@
 
 > 下面是仓库内置占位图（已加进项目，后续可直接替换为真实截图/GIF）。
 
-![Workspace Preview 1](./assets/screenshots/preview-1.svg)
+![Workspace Preview 1](./assets/screenshots/preview-1.png)
 
-![Workspace Preview 2](./assets/screenshots/preview-2.svg)
+![Workspace Preview 2](./assets/screenshots/preview-2.png)
 
-![Workspace Preview 3](./assets/screenshots/preview-3.svg)
+![Workspace Preview 3](./assets/screenshots/preview-3.png)
 
 ---
 
