@@ -1,5 +1,6 @@
 ﻿// ==UserScript==
 // @name         GitHub Star Lists Enhancer
+// @name:zh-CN   GitHub Star Lists 增强插件
 // @namespace    https://github.com/yoky-lumen
 // @description  Adds a filter bar to GitHub star lists, with search, language filtering, and sorting.
 // @description:zh-CN  为 GitHub Star Lists 新增筛选栏，支持搜索、语言筛选和排序。
@@ -7,11 +8,9 @@
 // @version      1.0.0
 // @author       Yoky
 // @license      MIT
-// @homepageURL  https://github.com/yoky-lumen/YOUR-REPO-NAME
+// @homepageURL  https://github.com/yoky-lumen/github-star-lists-enhancer
 // @match        https://github.com/stars/*/lists/*
-// @supportURL   https://github.com/yoky-lumen/YOUR-REPO-NAME/issues
-// @downloadURL  https://update.greasyfork.org/scripts/YOUR_SCRIPT_ID/YOUR_SCRIPT_NAME.user.js
-// @updateURL    https://update.greasyfork.org/scripts/YOUR_SCRIPT_ID/YOUR_SCRIPT_NAME.meta.js
+// @supportURL   https://github.com/yoky-lumen/github-star-lists-enhancer/issues
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
