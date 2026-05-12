@@ -42,11 +42,11 @@
 
 ## 📸效果预览
 
-在 star list 界面增加一个筛选栏，支持模糊搜索，筛选语言、按星标排序操作。 assets/readme说明文件/file-20260512094832246.png
+在 star list 界面增加一个筛选栏，支持模糊搜索，筛选语言、按星标排序操作。 ![](assets/img/preview-1.png)
 
-可以筛选语言 assets/readme说明文件/file-20260512095229366.png
+可以筛选语言 ![](assets/img/preview-2.png)
 
-选择星标排序方式 assets/readme说明文件/file-20260512095246774.png
+选择星标排序方式 ![](assets/img/preview-3.png)
 
 ## 📈 项目统计
 
