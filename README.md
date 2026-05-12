@@ -50,7 +50,13 @@
 
 ## 📈 项目统计
 
-[                  ![Star History Chart](https://api.star-history.com/svg?repos=maboloshi/github-chinese&type=Timeline)    ](https://star-history.com/#maboloshi/github-chinese&Timeline)
+<a href="https://www.star-history.com/?type=timeline&repos=yoky-lumen/github-star-lists-enhancer">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=yoky-lumen/github-star-lists-enhancer&type=timeline&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=yoky-lumen/github-star-lists-enhancer&type=timeline&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=yoky-lumen/github-star-lists-enhancer&type=timeline&legend=top-left" />
+ </picture>
+</a>
 
 ## 贡献
 
@@ -63,4 +69,4 @@
 
 | 微信赞赏                                                     | 支付宝赞赏                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](assets/img/Payment-1.jpg) ☕喝点咖啡继续干☕ | ![](assets/img/Payment-2.jpg) 🌶️来包辣条吧~🍪 |
+| <img src="assets/img/Payment-1.jpg" width="200" /><br><small>☕喝点咖啡继续干☕</small> | <img src="assets/img/Payment-2.jpg" width="200" /><br><small>🌶️来包辣条吧~🍪</small> |
