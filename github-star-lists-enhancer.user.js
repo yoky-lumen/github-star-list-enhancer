@@ -7,7 +7,7 @@
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @version      1.0.0
 // @author       Yoky
-// @license      MIT
+// @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/yoky-lumen/github-star-lists-enhancer
 // @match        https://github.com/stars/*/lists/*
 // @supportURL   https://github.com/yoky-lumen/github-star-lists-enhancer/issues
