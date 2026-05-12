@@ -14,11 +14,10 @@
 
 安装用户脚本管理器
 
-| 用户脚本管理器                                      | ### 安装本脚本 |
-| --------------------------------------------------- | -------------- |
-| [Tampermonkey](https://www.tampermonkey.net/)       |                |
-| - [Violentmonkey](https://violentmonkey.github.io/) |                |
-| GrokFoks                                            |                |
+| **浏览器类型**                     | **支持的脚本管理器** |
+| ------------------------------ | -------------- |
+| Chrome / Chromium 内核         | Tampermonkey   |
+| Firefox / Gecko 内核           | Tampermonkey   |
 
 ## ✨核心功能
 
@@ -42,11 +41,10 @@
 
 ## 📸效果预览
 
-在 star list 界面增加一个筛选栏，支持模糊搜索，筛选语言、按星标排序操作。 ![](assets/img/preview-1.png)
-
-可以筛选语言 ![](assets/img/preview-2.png)
-
-选择星标排序方式 ![](assets/img/preview-3.png)
+在 star list 界面增加一个筛选栏，支持模糊搜索，筛选语言、按星标排序操作。
+![](assets/img/preview-1.png)
+![](assets/img/preview-2.png)
+![](assets/img/preview-3.png)
 
 ## 📈 项目统计
 
