@@ -1,19 +1,22 @@
 ﻿// ==UserScript==
 // @name         GitHub Star Lists Enhancer
-// @namespace    https://github.com/YOUR_GITHUB_USERNAME
+// @namespace    https://github.com/yoky-lumen
 // @description  Adds a filter bar to GitHub star lists, with search, language filtering, and sorting.
-// @description:zh-CN  为 GitHub Star Lists 增加筛选栏，支持搜索、语言过滤和排序。
+// @description:zh-CN  为 GitHub Star Lists 新增筛选栏，支持搜索、语言筛选和排序。
 // @icon         https://github.githubassets.com/pinned-octocat.svg
-// @version      1.0.1
-// @author       YOUR_NAME
+// @version      1.0.0
+// @author       Yoky
 // @license      MIT
-// @homepageURL  https://github.com/YOUR_GITHUB_USERNAME/github-star-lists-enhancer
+// @homepageURL  https://github.com/yoky-lumen/YOUR-REPO-NAME
 // @match        https://github.com/stars/*/lists/*
-// @supportURL   https://github.com/YOUR_GITHUB_USERNAME/github-star-lists-enhancer/issues
+// @supportURL   https://github.com/yoky-lumen/YOUR-REPO-NAME/issues
+// @downloadURL  https://update.greasyfork.org/scripts/YOUR_SCRIPT_ID/YOUR_SCRIPT_NAME.user.js
+// @updateURL    https://update.greasyfork.org/scripts/YOUR_SCRIPT_ID/YOUR_SCRIPT_NAME.meta.js
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
 
+;(function () {
   "use strict"
 
   // Page-level configuration for locating GitHub star list content
@@ -173,7 +176,7 @@
     }
 
     const pieces = normalized
-      .split(/[\n路鈥/)
+      .split(/[\n·•]/)
       .map((piece) => cleanText(piece))
       .filter(Boolean)
 
@@ -230,7 +233,7 @@
   function parseCompactNumber(text) {
     const raw = cleanText(text)
       .replaceAll(",", "")
-      .replaceAll("锛?, "")
+      .replaceAll("，", "")
       .toLowerCase()
 
     const match = raw.match(/(\d+(?:\.\d+)?)/)
