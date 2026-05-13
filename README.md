@@ -1,5 +1,10 @@
 # GitHub Star Lists Enhancer
 
+[![GitHub stars][badge-stars]][repo-stars-url]
+[![GitHub forks][badge-forks]][repo-forks-url]
+[![GitHub issues][badge-issues]][repo-issues-url]
+[![GitHub license][badge-license]][repo-license-url]
+
 ## 项目介绍
 
 这是一个 GitHub 增强插件，起因是在star list 没有筛选栏，不便于我这样喜欢使用 list 管理的用户找查找仓库，于是便使用 AI 辅助帮我挫了一个筛选栏，现与大家分享，希望能帮到你。
@@ -12,24 +17,30 @@
 
 ## 安装
 
-安装用户脚本管理器
+### 安装用户脚本管理器
 
 | **浏览器类型**                     | **支持的脚本管理器** |
 | ------------------------------ | -------------- |
 | Chrome / Chromium 内核         | Tampermonkey   |
 | Firefox / Gecko 内核           | Tampermonkey   |
 
+### 安装插件
+
+**CGreakF**
+
+下载链接: 
+
+**手动下载**
+
+下载 `github-star-lists-enhancer.user.js` 文件添加到 `Tampermonkey`
+
 ## ✨核心功能
 
 - 🔎**关键字搜索**：在当前 Star List 内快速定位仓库。
 
-- 🧩**语言过滤**：按 `JavaScript` / `TypeScript` / `Python` 等语言筛选。
+- 🧩**语言过滤**：按 当前 list 下拥有的语言进行语言筛选。
 
-- ⏱️
-
-  本地排序
-
-  ：支持以下排序方式：
+- ⏱️本地排序：支持以下排序方式：
 
   - Recently starred（默认）
   - Recently active
@@ -65,6 +76,15 @@
 
 ## 欢迎打赏
 
-| 微信赞赏                                                     | 支付宝赞赏                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 微信赞赏 | 支付宝赞赏 |
+| ---- | ----- |
 | <img src="assets/img/Payment-1.jpg" width="200" /><br><small>☕喝点咖啡继续干☕</small> | <img src="assets/img/Payment-2.jpg" width="200" /><br><small>🌶️来包辣条吧~🍪</small> |
+
+[badge-stars]: https://img.shields.io/github/stars/yoky-lumen/github-star-lists-enhancer?style=flat-square
+[badge-forks]: https://img.shields.io/github/forks/yoky-lumen/github-star-lists-enhancer?style=flat-square
+[badge-issues]: https://img.shields.io/github/issues/yoky-lumen/github-star-lists-enhancer?style=flat-square
+[badge-license]: https://img.shields.io/github/license/yoky-lumen/github-star-lists-enhancer?style=flat-square
+[repo-stars-url]: https://github.com/yoky-lumen/github-star-lists-enhancer/stargazers
+[repo-forks-url]: https://github.com/yoky-lumen/github-star-lists-enhancer/network/members
+[repo-issues-url]: https://github.com/yoky-lumen/github-star-lists-enhancer/issues
+[repo-license-url]: https://github.com/yoky-lumen/github-star-lists-enhancer/blob/main/LICENSE
