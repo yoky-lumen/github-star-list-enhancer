@@ -1,21 +1,21 @@
-<h1 align="center">GitHub Star Lists Enhancer</h1>
+<h1 align="center">GitHub Star List Enhancer</h1>
 
 <p align="center">
-  为 GitHub Star Lists 增加搜索、语言筛选和本地排序能力，让收藏清单更容易管理。
+  为 GitHub Star List 增加搜索、语言筛选和本地排序能力，让收藏清单更容易管理。
 </p>
 
 <p align="center">
-  <a href="https://github.com/yoky-lumen/github-star-lists-enhancer/stargazers">
-    <img alt="GitHub stars" src="https://img.shields.io/github/stars/yoky-lumen/github-star-lists-enhancer?style=flat-square">
+  <a href="https://github.com/yoky-lumen/github-star-list-enhancer/stargazers">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/yoky-lumen/github-star-list-enhancer?style=flat-square">
   </a>
-  <a href="https://github.com/yoky-lumen/github-star-lists-enhancer/network/members">
-    <img alt="GitHub forks" src="https://img.shields.io/github/forks/yoky-lumen/github-star-lists-enhancer?style=flat-square">
+  <a href="https://github.com/yoky-lumen/github-star-list-enhancer/network/members">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/yoky-lumen/github-star-list-enhancer?style=flat-square">
   </a>
-  <a href="https://github.com/yoky-lumen/github-star-lists-enhancer/issues">
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/yoky-lumen/github-star-lists-enhancer?style=flat-square">
+  <a href="https://github.com/yoky-lumen/github-star-list-enhancer/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/yoky-lumen/github-star-list-enhancer?style=flat-square">
   </a>
-  <a href="https://github.com/yoky-lumen/github-star-lists-enhancer/blob/master/LICENSE">
-    <img alt="GitHub license" src="https://img.shields.io/github/license/yoky-lumen/github-star-lists-enhancer?style=flat-square">
+  <a href="https://github.com/yoky-lumen/github-star-list-enhancer/blob/master/LICENSE">
+    <img alt="GitHub license" src="https://img.shields.io/github/license/yoky-lumen/github-star-list-enhancer?style=flat-square">
   </a>
 </p>
 
@@ -23,12 +23,12 @@
   <a href="#安装">安装</a> ·
   <a href="#效果预览">效果预览</a> ·
   <a href="#隐私说明">隐私说明</a> ·
-  <a href="https://github.com/yoky-lumen/github-star-lists-enhancer/issues">反馈问题</a>
+  <a href="https://github.com/yoky-lumen/github-star-list-enhancer/issues">反馈问题</a>
 </p>
 
 ## 项目介绍
 
-GitHub Star Lists 是管理收藏仓库的好地方，但默认页面缺少快速筛选能力。这个脚本会在 Star List 页面注入一个轻量工具栏，支持按关键字搜索、按语言筛选，并按最近收藏、最近活跃、Stars 数进行本地排序。
+GitHub Star List 是管理收藏仓库的好地方，但默认页面缺少快速筛选能力。这个脚本会在 Star List 页面注入一个轻量工具栏，支持按关键字搜索、按语言筛选，并按最近收藏、最近活跃、Stars 数进行本地排序。
 
 脚本只处理当前页面已经加载出来的仓库信息，不请求 GitHub API，也不会上传或保存你的数据。
 
@@ -57,7 +57,7 @@ GitHub Star Lists 是管理收藏仓库的好地方，但默认页面缺少快�
 | ---- | ---- | ---- |
 | Greasy Fork | 发布后补充 | 推荐方式，后续更新更方便。 |
 | GitHub Raw | [安装脚本][script-raw-url] | 适合发布前测试或手动安装。 |
-| 手动下载 | [查看源码][script-source-url] | 下载 `github-star-lists-enhancer.user.js` 后添加到 Tampermonkey。 |
+| 手动下载 | [查看源码][script-source-url] | 下载 `github-star-list-enhancer.user.js` 后添加到 Tampermonkey。 |
 
 ## 效果预览
 
@@ -84,7 +84,7 @@ GitHub Star Lists 是管理收藏仓库的好地方，但默认页面缺少快�
 
 | 项目 | 状态 |
 | ---- | ---- |
-| GitHub Star Lists | 支持 `https://github.com/stars/*/lists/*` |
+| GitHub Star List | 支持 `https://github.com/stars/*/lists/*` |
 | Tampermonkey | 推荐 |
 | Chrome / Chromium | 支持 |
 | Firefox | 支持 |
@@ -101,11 +101,11 @@ GitHub Star Lists 是管理收藏仓库的好地方，但默认页面缺少快�
 
 ## 项目统计
 
-<a href="https://www.star-history.com/?type=timeline&repos=yoky-lumen/github-star-lists-enhancer">
+<a href="https://www.star-history.com/?type=timeline&repos=yoky-lumen/github-star-list-enhancer">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=yoky-lumen/github-star-lists-enhancer&type=timeline&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=yoky-lumen/github-star-lists-enhancer&type=timeline&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=yoky-lumen/github-star-lists-enhancer&type=timeline&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=yoky-lumen/github-star-list-enhancer&type=timeline&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=yoky-lumen/github-star-list-enhancer&type=timeline&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=yoky-lumen/github-star-list-enhancer&type=timeline&legend=top-left" />
  </picture>
 </a>
 
@@ -127,5 +127,5 @@ GitHub Star Lists 是管理收藏仓库的好地方，但默认页面缺少快�
 
 [tm-chrome]: https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo
 [tm-firefox]: https://addons.mozilla.org/firefox/addon/tampermonkey/
-[script-raw-url]: https://raw.githubusercontent.com/yoky-lumen/github-star-lists-enhancer/master/github-star-lists-enhancer.user.js
-[script-source-url]: https://github.com/yoky-lumen/github-star-lists-enhancer/blob/master/github-star-lists-enhancer.user.js
+[script-raw-url]: https://raw.githubusercontent.com/yoky-lumen/github-star-list-enhancer/master/github-star-list-enhancer.user.js
+[script-source-url]: https://github.com/yoky-lumen/github-star-list-enhancer/blob/master/github-star-list-enhancer.user.js
