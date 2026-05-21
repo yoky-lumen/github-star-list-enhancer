@@ -1,9 +1,9 @@
-﻿// ==UserScript==
-// @name         GitHub Star List Enhancer
-// @name:zh-CN   GitHub Star List 增强插件
+// ==UserScript==
+// @name         GitHub Star List 增强插件
+// @name:en      GitHub Star List Enhancer
 // @namespace    https://github.com/yoky-lumen
-// @description  Adds a filter bar to GitHub star list pages, with search, language filtering, and sorting.
-// @description:zh-CN  为 GitHub Star List 新增筛选栏，支持搜索、语言筛选和排序。
+// @description  为 GitHub Star List 新增筛选栏，支持搜索、语言筛选和排序。
+// @description:en  Adds a filter bar to GitHub Star List pages, with search, language filtering, and sorting.
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @version      1.0.0
 // @author       Yoky
@@ -1221,7 +1221,5 @@
     scheduleBoot(true)
   })
 
-  console.log("GitHub Star List Enhancer started")
   scheduleBoot(true)
 })()
-
