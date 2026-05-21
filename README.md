@@ -131,6 +131,6 @@ GitHub Star List 增强插件是一款面向 GitHub Star List 页面的用户脚
 
 [tm-chrome]: https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo
 [tm-firefox]: https://addons.mozilla.org/firefox/addon/tampermonkey/
-[greasyfork-url]: https://greasyfork.org/zh-CN/scripts/579183-github-star-list-%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6
+[greasyfork-url]: https://greasyfork.org/zh-CN/scripts/579191-github-star-list-%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6
 [script-raw-url]: https://raw.githubusercontent.com/yoky-lumen/github-star-list-enhancer/master/github-star-list-enhancer.user.js
 [script-source-url]: https://github.com/yoky-lumen/github-star-list-enhancer/blob/master/github-star-list-enhancer.user.js
