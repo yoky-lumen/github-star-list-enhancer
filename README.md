@@ -21,6 +21,7 @@
 
 <p align="center">
   <a href="#安装">安装</a> ·
+  <a href="https://greasyfork.org/zh-CN/scripts/579183-github-star-list-%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6">Greasy Fork</a> ·
   <a href="#效果预览">效果预览</a> ·
   <a href="#隐私说明">隐私说明</a> ·
   <a href="https://github.com/yoky-lumen/github-star-list-enhancer/issues">反馈问题</a>
@@ -28,7 +29,7 @@
 
 ## 项目介绍
 
-GitHub Star List 是管理收藏仓库的好地方，但默认页面缺少快速筛选能力。这个脚本会在 Star List 页面注入一个轻量工具栏，支持按关键字搜索、按语言筛选，并按最近收藏、最近活跃、Stars 数进行本地排序。
+GitHub Star List 增强插件是一款面向 GitHub Star List 页面的用户脚本。它会在 Star List 页面注入一个轻量工具栏，支持按关键字搜索、按语言筛选，并按最近收藏、最近活跃、Stars 数进行本地排序。
 
 脚本只处理当前页面已经加载出来的仓库信息，不请求 GitHub API，也不会上传或保存你的数据。
 
@@ -55,7 +56,7 @@ GitHub Star List 是管理收藏仓库的好地方，但默认页面缺少快速
 
 | 安装方式 | 链接 | 说明 |
 | ---- | ---- | ---- |
-| Greasy Fork | 发布后补充 | 推荐方式，后续更新更方便。 |
+| Greasy Fork | [Greasy Fork 页面][greasyfork-url] | 推荐方式，可查看源码、版本信息并通过脚本管理器安装。 |
 | GitHub Raw | [安装脚本][script-raw-url] | 适合发布前测试或手动安装。 |
 | 手动下载 | [查看源码][script-source-url] | 下载 `github-star-list-enhancer.user.js` 后添加到 Tampermonkey。 |
 
@@ -85,6 +86,7 @@ GitHub Star List 是管理收藏仓库的好地方，但默认页面缺少快速
 | 项目 | 状态 |
 | ---- | ---- |
 | GitHub Star List | 支持 `https://github.com/stars/*/lists/*` |
+| Greasy Fork | 已发布，中文区可搜索 |
 | Tampermonkey | 推荐 |
 | Chrome / Chromium | 支持 |
 | Firefox | 支持 |
@@ -92,6 +94,8 @@ GitHub Star List 是管理收藏仓库的好地方，但默认页面缺少快速
 ## 隐私说明
 
 本脚本不会收集、上传或存储你的 GitHub 数据。所有搜索、筛选和排序都在浏览器本地完成，数据来源仅限当前页面已经渲染出来的仓库卡片。
+
+脚本权限为 `@grant none`，仅匹配 `https://github.com/stars/*/lists/*` 页面。
 
 ## 已知限制
 
@@ -127,5 +131,6 @@ GitHub Star List 是管理收藏仓库的好地方，但默认页面缺少快速
 
 [tm-chrome]: https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo
 [tm-firefox]: https://addons.mozilla.org/firefox/addon/tampermonkey/
+[greasyfork-url]: https://greasyfork.org/zh-CN/scripts/579183-github-star-list-%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6
 [script-raw-url]: https://raw.githubusercontent.com/yoky-lumen/github-star-list-enhancer/master/github-star-list-enhancer.user.js
 [script-source-url]: https://github.com/yoky-lumen/github-star-list-enhancer/blob/master/github-star-list-enhancer.user.js
