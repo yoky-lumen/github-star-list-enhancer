@@ -64,15 +64,15 @@ GitHub Star List 增强插件是一款面向 GitHub Star List 页面的用户脚
 
 ### 搜索与工具栏
 
-![搜索与工具栏](assets/img/preview-1.png)
+![搜索与工具栏](https://i.postimg.cc/7fgxq7nv/preview-1.png)
 
 ### 语言筛选
 
-![语言筛选](assets/img/preview-2.png)
+![语言筛选](https://i.postimg.cc/dhwJ315M/preview-2.png)
 
 ### 排序菜单
 
-![排序菜单](assets/img/preview-3.png)
+![排序菜单](https://i.postimg.cc/v4bGTB3J/preview-3.png)
 
 ## 适用场景
 
@@ -127,7 +127,7 @@ GitHub Star List 增强插件是一款面向 GitHub Star List 页面的用户脚
 
 | 微信赞赏 | 支付宝赞赏 |
 | ---- | ---- |
-| <img src="assets/img/Payment-1.jpg" width="200" /><br><small>喝点咖啡继续干</small> | <img src="assets/img/Payment-2.jpg" width="200" /><br><small>来包辣条吧</small> |
+| <img src="https://i.postimg.cc/YvMt09bT/Payment-1.jpg" width="200" /><br><small>喝点咖啡继续干</small> | <img src="https://i.postimg.cc/VJmzv6Kc/Payment-2.jpg" width="200" /><br><small>来包辣条吧</small> |
 
 [tm-chrome]: https://chromewebstore.google.com/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo
 [tm-firefox]: https://addons.mozilla.org/firefox/addon/tampermonkey/
