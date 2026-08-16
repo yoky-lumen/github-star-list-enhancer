@@ -5,7 +5,7 @@
 // @description  为 GitHub Star List 新增筛选栏，支持搜索、语言筛选和排序。
 // @description:en  Adds a filter bar to GitHub Star List pages, with search, language filtering, and sorting.
 // @icon         https://github.githubassets.com/pinned-octocat.svg
-// @version      1.0.0
+// @version      1.1.1
 // @author       Yoky
 // @license      GPL-3.0
 // @homepageURL  https://github.com/yoky-lumen/github-star-list-enhancer
@@ -13,6 +13,8 @@
 // @supportURL   https://github.com/yoky-lumen/github-star-list-enhancer/issues
 // @grant        none
 // @run-at       document-idle
+// @downloadURL https://update.greasyfork.org/scripts/579191/GitHub%20Star%20List%20%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6.user.js
+// @updateURL https://update.greasyfork.org/scripts/579191/GitHub%20Star%20List%20%E5%A2%9E%E5%BC%BA%E6%8F%92%E4%BB%B6.meta.js
 // ==/UserScript==
 
 ;(function () {
@@ -25,7 +27,7 @@
     '[data-listview-component="items"]',
     '[data-testid="user-list-repositories"]',
   ]
-  const TOOLBAR_VERSION = "2"
+  const TOOLBAR_VERSION = "3"
   const SORT_OPTIONS = [
     { value: "created-desc", label: "Recently starred" },
     { value: "updated-desc", label: "Recently active" },
@@ -42,9 +44,12 @@
   let pageKey = location.pathname
   let lastRepoSignature = ""
   let bootTimer = null
+  let searchTimer = null
   let stateVersion = 0
   let shouldClearSearchInput = true
   let pendingKeyword = ""
+  let observedContainer = null
+  let repoObserver = null
 
   const ICON_SEARCH = `
         <span class="FormControl-input-leadingVisualWrap">
@@ -557,16 +562,6 @@
                                     >
                                 </div>
                             </primer-text-field>
-                            <button
-                                id="gh-lists-search-button"
-                                type="button"
-                                data-view-component="true"
-                                class="FormField-input flex-self-start Button--secondary Button--medium Button"
-                            >
-                                <span class="Button-content">
-                                    <span class="Button-label">Search</span>
-                                </span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -715,7 +710,6 @@
     toolbar.innerHTML = toolbarHTML()
     container.parentElement.insertBefore(toolbar, container)
 
-    buildSortMenu()
     return true
   }
 
@@ -881,9 +875,12 @@
       }
     })
 
+    const orderedSet = new Set(ordered)
+
     nextRepos.forEach((repo) => {
-      if (!ordered.includes(repo)) {
+      if (!orderedSet.has(repo)) {
         ordered.push(repo)
+        orderedSet.add(repo)
       }
     })
 
@@ -891,7 +888,20 @@
   }
 
   function ensureCache(force = false) {
-    const repos = getRepos()
+    const container = getContainer()
+    if (!container) {
+      originalRepos = []
+      lastRepoSignature = ""
+      return false
+    }
+
+    // Normal filter and sort interactions work entirely from the cache.
+    // Container mutations and navigation explicitly request a forced refresh.
+    if (!force && originalRepos.length && container === observedContainer) {
+      return true
+    }
+
+    const repos = getRepos(container)
     if (!repos.length) {
       originalRepos = []
       lastRepoSignature = ""
@@ -919,8 +929,6 @@
       repo.dataset.ghListsOriginalIndex = String(index)
       repo.dataset.ghListsMetaVersion = "0"
     })
-
-    buildLanguageMenu()
 
     return true
   }
@@ -955,16 +963,10 @@
     return repos
   }
 
-  function matchRepo(repo, keyword) {
+  function matchRepo(repo, terms, languageLower) {
     const meta = getRepoMeta(repo)
     const languageMatched =
-      !currentLanguage || meta.languageLower === currentLanguage.toLowerCase()
-    const terms = keyword
-      ? keyword
-          .split(/\s+/)
-          .map((term) => term.trim())
-          .filter(Boolean)
-      : []
+      !languageLower || meta.languageLower === languageLower
     const haystack = `${meta.nameLower}\n${meta.rawText}`
     const searchMatched =
       !terms.length || terms.every((term) => haystack.includes(term))
@@ -981,6 +983,54 @@
     emptyState.hidden = visibleCount > 0
   }
 
+  function hasSameRepoOrder(currentRepos, nextRepos) {
+    return (
+      currentRepos.length === nextRepos.length &&
+      currentRepos.every((repo, index) => repo === nextRepos[index])
+    )
+  }
+
+  function observeRepoContainer(container) {
+    if (!container) {
+      return
+    }
+
+    repoObserver?.disconnect()
+    observedContainer = container
+
+    if (!repoObserver) {
+      repoObserver = new MutationObserver((records) => {
+        const repoSetMayHaveChanged = records.some((record) => {
+          return record.addedNodes.length > 0 || record.removedNodes.length > 0
+        })
+
+        if (repoSetMayHaveChanged) {
+          scheduleBoot(true)
+        }
+      })
+    }
+
+    repoObserver.observe(container, {
+      childList: true,
+    })
+  }
+
+  function applyRepoOrder(container, orderedRepos) {
+    const currentRepos = getRepos(container)
+    if (hasSameRepoOrder(currentRepos, orderedRepos)) {
+      return
+    }
+
+    // Reordering existing cards would otherwise wake our own observer.
+    repoObserver?.disconnect()
+
+    const fragment = document.createDocumentFragment()
+    orderedRepos.forEach((repo) => fragment.appendChild(repo))
+    container.appendChild(fragment)
+
+    observeRepoContainer(container)
+  }
+
   // The list is updated by reordering existing DOM rows and toggling
   // visibility, instead of rebuilding repository cards from scratch.
   function update() {
@@ -993,16 +1043,21 @@
       return
     }
 
-    const keyword = getKeyword()
+    const terms = getKeyword()
+      .split(/\s+/)
+      .map((term) => term.trim())
+      .filter(Boolean)
+    const languageLower = currentLanguage.toLowerCase()
     const orderedRepos = getOrderedRepos()
     let visibleCount = 0
 
-    orderedRepos.forEach((repo) => {
-      container.appendChild(repo)
+    applyRepoOrder(container, orderedRepos)
 
-      const matched = matchRepo(repo, keyword)
-      repo.hidden = !matched
-      repo.style.display = matched ? "" : "none"
+    orderedRepos.forEach((repo) => {
+      const matched = matchRepo(repo, terms, languageLower)
+      if (repo.hidden === matched) {
+        repo.hidden = !matched
+      }
 
       if (matched) {
         visibleCount += 1
@@ -1024,8 +1079,6 @@
       currentSort = value || "created-desc"
     }
 
-    updateLabels()
-    updateMenuState(kind, value)
     closeMenus()
     update()
   }
@@ -1045,6 +1098,9 @@
     lastRepoSignature = ""
     stateVersion += 1
     shouldClearSearchInput = true
+    clearTimeout(searchTimer)
+    observedContainer = null
+    repoObserver?.disconnect()
 
     document.querySelector("#gh-lists-toolbar")?.remove()
     document.querySelector("#gh-lists-empty-state")?.remove()
@@ -1069,10 +1125,12 @@
     input.value = pendingKeyword
   }
 
-  function commitSearch() {
-    const input = document.querySelector("#gh-lists-search-query")
-    pendingKeyword = cleanText(input?.value || "")
-    update()
+  function scheduleSearch(value) {
+    pendingKeyword = value
+    clearTimeout(searchTimer)
+    searchTimer = setTimeout(() => {
+      update()
+    }, 80)
   }
 
   function boot(forceCache = false) {
@@ -1084,6 +1142,16 @@
     }
 
     syncSearchInput()
+
+    const container = getContainer()
+    if (!container) {
+      return
+    }
+
+    if (container !== observedContainer) {
+      observeRepoContainer(container)
+      forceCache = true
+    }
 
     if (!ensureCache(forceCache)) {
       return
@@ -1143,64 +1211,43 @@
   )
 
   document.addEventListener("keydown", (event) => {
-    const target = event.target
-
-    if (
-      event.key === "Enter" &&
-      target instanceof HTMLInputElement &&
-      target.id === "gh-lists-search-query"
-    ) {
-      event.preventDefault()
-      commitSearch()
-      return
-    }
-
     if (event.key === "Escape") {
       closeMenus()
     }
   })
 
-  document.addEventListener(
-    "click",
-    (event) => {
-      const target = event.target instanceof Element ? event.target : null
-      if (!target) {
-        return
-      }
+  document.addEventListener("input", (event) => {
+    const target = event.target
+    if (
+      target instanceof HTMLInputElement &&
+      target.id === "gh-lists-search-query"
+    ) {
+      scheduleSearch(target.value)
+    }
+  })
 
-      const searchButton = target.closest("#gh-lists-search-button")
-      if (!searchButton) {
-        return
-      }
-
-      event.preventDefault()
-      event.stopPropagation()
-      commitSearch()
-    },
-    true,
-  )
-
-  const observer = new MutationObserver(() => {
+  // The page observer only detects replacement of the list container.
+  // Repository additions and removals are handled by the smaller observer
+  // attached directly to that container.
+  const pageObserver = new MutationObserver(() => {
     const container = getContainer()
-    const toolbar = document.querySelector("#gh-lists-toolbar")
 
     if (!container) {
       return
     }
 
-    if (!toolbar) {
+    if (container !== observedContainer) {
+      observeRepoContainer(container)
       scheduleBoot(true)
       return
     }
 
-    const repos = getRepos(container)
-    const nextSignature = getRepoSignature(repos)
-    if (repos.length && nextSignature !== lastRepoSignature) {
+    if (!document.querySelector("#gh-lists-toolbar")) {
       scheduleBoot(true)
     }
   })
 
-  observer.observe(document.body, {
+  pageObserver.observe(document.body, {
     childList: true,
     subtree: true,
   })
